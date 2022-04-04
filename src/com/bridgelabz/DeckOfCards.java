@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 public class DeckOfCards extends Players
 {
+    private int[] freqCount = new int[4];
     private String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
     private String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
     int n = 4 * 13;
@@ -61,13 +62,35 @@ public class DeckOfCards extends Players
                 System.out.printf("|| %s    ", deck[j]);
             }
             System.out.println();
+            int k = 0;
+            for(int count: freqCount) {
+                System.out.print(suits[k]+ ":" + count + "  ");
+                k++;
+            }
+            freqCount = new int[4];
+            System.out.println();
         }
     }
-
+    public void freqCounter(String deck) {
+        String[] splitDeck = deck.split(" ");
+        for(String suit: splitDeck) {
+            if(suit.equals("Clubs")) {
+                freqCount[0]++;
+            }
+            if(suit.equals("Diamonds")) {
+                freqCount[1]++;
+            }
+            if(suit.equals("Hearts")) {
+                freqCount[2]++;
+            }
+            if(suit.equals("Spades")) {
+                freqCount[3]++;
+            }
+        }
+    }
     public static void main(String[] args) {
         DeckOfCards deckOfCards = new DeckOfCards();
         deckOfCards.distribution();
         // String[] deck = deckOfCards.deckInitialize();
-
     }
 }
