@@ -27,18 +27,18 @@ public class Players
     public String[] playerSequence()
     {
         addingPlayer();
-        for(int i=0; i < playersName.length; i++)
-        {
-            for(int j = 0; j < playersName.length; j++) {
-                if(playersName[i].hashCode() != playersName[j].hashCode()) {
-                    if(playersName[i].length() > playersName[j].length()) {
-                        String temp = playersName[j];
-                        playersName[j] = playersName[i];
-                        playersName[i] = temp;
-                    }
+        for (int i = 0; i < playersName.length - 1; i++) {
+
+            for (int j = 0; j < playersName.length - i - 1; j++) {
+                if (playersName[j].length() > playersName[j+1].length()) {
+                    String temp = playersName[j+1];
+                    playersName[j] = playersName[j+1];
+                    playersName[j+1] = temp;
                 }
+
             }
         }
         return playersName;
     }
 }
+
