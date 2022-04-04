@@ -29,5 +29,6 @@ public class DeckOfCards extends Players
         DeckOfCards deckOfCards = new DeckOfCards();
         deckOfCards.deckInitialize();
         deckOfCards.addingPlayer();
+        deckOfCards.playerSequence();
     }
 }
