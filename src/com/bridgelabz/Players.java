@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Players
 {
-    private String[] playersName = new String[4];
+    private String[] playersName;
 
     public void addingPlayer()
     {
@@ -27,17 +27,12 @@ public class Players
     {
         for(int i=0; i < playersName.length; i++)
         {
-            if(playersName[i] == null) {
-                break;
-            }
             for(int j = 0; j < playersName.length; j++)
             {
-                if(playersName[j] == null)
+                if(playersName[i].hashCode() != playersName[j].hashCode())
                 {
-                    continue;
-                }
-                if(playersName[i].hashCode() != playersName.hashCode()) {
-                    if(playersName[i].length() > playersName[j].length()) {
+                    if(playersName[i].length() > playersName[j].length())
+                    {
                         String temp = playersName[j];
                         playersName[j] = playersName[i];
                         playersName[i] = temp;
@@ -45,7 +40,5 @@ public class Players
                 }
             }
         }
-
     }
-
 }
