@@ -1,21 +1,19 @@
 package com.bridgelabz;
 
-import java.util.Random;
-
-public class DeckOfCards
+public class DeckOfCards extends Players
 {
     private String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
     private String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-    int n = suits.length * ranks.length;
+    int n = 4 * 13;
 
-    String[] deckInitialize()
+    void deckInitialize()
     {
         String[] deck = new String[this.n];
-        for (int i = 0; i < ranks.length; i++)
+        for (int i = 0; i < 13; i++)
         {
-            for (int j = 0; j < suits.length; j++)
+            for (int j = 0; j < 4; j++)
             {
-                deck[suits.length * i + j] = ranks[i] + " of " + suits[j];
+                deck[4 * i + j] = ranks[i] + " of " + suits[j];
             }
         }
         for (int i = 0; i < n; i++)
@@ -25,12 +23,11 @@ public class DeckOfCards
             deck[r] = deck[i];
             deck[i] = temp;
         }
-        return deck;
     }
-
     public static void main(String[] args)
     {
         DeckOfCards deckOfCards = new DeckOfCards();
         deckOfCards.deckInitialize();
+        deckOfCards.addingPlayer();
     }
 }
