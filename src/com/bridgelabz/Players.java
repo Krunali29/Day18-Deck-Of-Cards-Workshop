@@ -28,7 +28,6 @@ public class Players
     {
         addingPlayer();
         for (int i = 0; i < playersName.length - 1; i++) {
-
             for (int j = 0; j < playersName.length - i - 1; j++) {
                 if (playersName[j].length() > playersName[j+1].length()) {
                     String temp = playersName[j+1];
