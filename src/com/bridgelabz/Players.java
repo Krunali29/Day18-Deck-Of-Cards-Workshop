@@ -11,6 +11,7 @@ public class Players
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the number of player");
         int p = scan.nextInt();
+        playersName = new String[p];
         if(p>4 || p<2)
         {
             System.out.println("Enter player from 2 to 4");
@@ -23,16 +24,14 @@ public class Players
             playersName[i] = name;
         }
     }
-    public void playerSequence()
+    public String[] playerSequence()
     {
+        addingPlayer();
         for(int i=0; i < playersName.length; i++)
         {
-            for(int j = 0; j < playersName.length; j++)
-            {
-                if(playersName[i].hashCode() != playersName[j].hashCode())
-                {
-                    if(playersName[i].length() > playersName[j].length())
-                    {
+            for(int j = 0; j < playersName.length; j++) {
+                if(playersName[i].hashCode() != playersName[j].hashCode()) {
+                    if(playersName[i].length() > playersName[j].length()) {
                         String temp = playersName[j];
                         playersName[j] = playersName[i];
                         playersName[i] = temp;
@@ -40,5 +39,6 @@ public class Players
                 }
             }
         }
+        return playersName;
     }
 }
